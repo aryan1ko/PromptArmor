@@ -1,0 +1,83 @@
+{
+    "name": "SecurityLog",
+    "type": "object",
+    "properties": {
+      "request_id": {
+        "type": "string",
+        "description": "Unique identifier for the request"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When the check was performed"
+      },
+      "check_type": {
+        "type": "string",
+        "enum": [
+          "input_sanitizer",
+          "output_inspector",
+          "tool_policy",
+          "context_diff"
+        ],
+        "description": "Type of security check"
+      },
+      "input_text": {
+        "type": "string",
+        "description": "Original input text"
+      },
+      "output_text": {
+        "type": "string",
+        "description": "Processed output text"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "passed",
+          "blocked",
+          "flagged"
+        ],
+        "description": "Result of the check"
+      },
+      "severity": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ],
+        "description": "Severity level of violations"
+      },
+      "violations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "number"
+            }
+          }
+        },
+        "description": "List of detected violations"
+      },
+      "latency_ms": {
+        "type": "number",
+        "description": "Processing time in milliseconds"
+      },
+      "policy_applied": {
+        "type": "string",
+        "description": "Name of the policy that was applied"
+      }
+    },
+    "required": [
+      "request_id",
+      "check_type",
+      "status"
+    ]
+  }
