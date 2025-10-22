@@ -1,0 +1,78 @@
+{
+    "name": "Policy",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Policy name"
+      },
+      "description": {
+        "type": "string",
+        "description": "Policy description"
+      },
+      "enabled": {
+        "type": "boolean",
+        "default": true,
+        "description": "Whether the policy is active"
+      },
+      "version": {
+        "type": "string",
+        "default": "1.0",
+        "description": "Policy version"
+      },
+      "block_on": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "data_leak",
+            "context_poisoning",
+            "jailbreak",
+            "pii_exposure",
+            "unauthorized_tool"
+          ]
+        },
+        "description": "Violation types that trigger blocking"
+      },
+      "allowed_tool_names": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of allowed tool names"
+      },
+      "allowed_url_domains": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of allowed URL domains"
+      },
+      "pii_patterns": {
+        "type": "string",
+        "enum": [
+          "strict",
+          "moderate",
+          "lenient"
+        ],
+        "default": "strict",
+        "description": "PII detection sensitivity"
+      },
+      "deterministic_only": {
+        "type": "boolean",
+        "default": false,
+        "description": "Only allow deterministic operations"
+      },
+      "max_tokens": {
+        "type": "number",
+        "description": "Maximum tokens allowed"
+      },
+      "rules_yaml": {
+        "type": "string",
+        "description": "Full YAML configuration"
+      }
+    },
+    "required": [
+      "name"
+    ]
+  }
