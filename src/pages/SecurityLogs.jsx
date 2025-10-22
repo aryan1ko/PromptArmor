@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Search, Download, Eye, AlertTriangle } from "lucide-react";
 import { format } from "date-fns";
 import BackButton from "../components/navigation/BackButton";
-import LogDetailsModal from "../components/logs/LogDetailsModal";
+import LogDetailsModal from "../components/logs/LogDetailsModal.tsx";
 
 export default function SecurityLogs() {
   const [searchQuery, setSearchQuery] = useState("");

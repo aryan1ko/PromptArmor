@@ -7,7 +7,7 @@ import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { Plus, Edit, Trash2, AlertTriangle } from "lucide-react";
 import BackButton from "../components/navigation/BackButton";
-import PolicyFormModal from "../components/policy/PolicyFormModal";
+import PolicyFormModal from "../components/policy/PolicyFormModal.tsx";
 
 export default function PolicyEditor() {
   const [selectedPolicy, setSelectedPolicy] = useState(null);
