@@ -1,0 +1,35 @@
+{
+    "name": "Metric",
+    "type": "object",
+    "properties": {
+      "metric_type": {
+        "type": "string",
+        "enum": [
+          "checks_run",
+          "violations_caught",
+          "average_latency",
+          "blocked_requests",
+          "system_uptime"
+        ],
+        "description": "Type of metric"
+      },
+      "value": {
+        "type": "number",
+        "description": "Metric value"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When the metric was recorded"
+      },
+      "metadata": {
+        "type": "object",
+        "additionalProperties": true,
+        "description": "Additional metric data"
+      }
+    },
+    "required": [
+      "metric_type",
+      "value"
+    ]
+  }
